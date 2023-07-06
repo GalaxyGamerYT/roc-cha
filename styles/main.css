@@ -1,0 +1,88 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+    overflow: hidden;
+}
+
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.topnav a,
+.topnav .nav_image{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+.topnav a:hover {
+    background-color: #b0afaf;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #fd5a2d;
+    color: white;
+}
+
+.topnav .navbar_image {
+    width: 70px;
+    height: 50px;
+    overflow: hidden;
+    margin-top: -15px;
+    margin-bottom: -25px;
+}
+
+.content {
+    height: 100%;
+    background-color: black;
+}
+
+.topnav .right {
+    float: right;
+}
+
+.topnav .search_container {
+    justify-content: center;
+}
+
+.search_container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topnav .search_container {
+    float: right;
+    align-items: center;
+}
+
+.topnav input[type=text] {
+    padding: 6px;
+    margin-top: 15px;
+    margin-bottom: -5px;
+    font-size: 17px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.topnav button {
+    padding: 6px;
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: -4px;
+    font-size: 17px;
+}
+
+.topnav .search_container button:hover {
+    background: #fd5a2d;
+    color: white;
+}

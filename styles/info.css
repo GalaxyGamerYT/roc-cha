@@ -1,0 +1,88 @@
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    background-color: #1b1b1b39;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #b0afaf;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #fd5a2de9;
+}
+
+tr {
+    background-color: #404040e1;
+}
+
+tr:nth-child(even) {
+    background-color: #1b1b1be1;
+}
+
+.album_parent_container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.track_parent_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    border-left: 2px solid #b0afaf;
+}
+
+.track_child_container {
+    text-align: center;
+    width: 85%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.album_child_container p span {
+    color: #fd5a2de9;
+}
+
+.no_tracks_container .no_tracks {
+    color: red;
+    font-size: 50px;
+    text-align: center;
+}
+
+.no_tracks_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.track_child_container h2 {
+    font-size: 50px;
+    margin: 0;
+}
+
+/* html, body {
+    color:black;
+} */
