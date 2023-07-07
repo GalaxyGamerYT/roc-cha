@@ -1,42 +1,43 @@
 <?php
 
-    function curlIt($resource, $urlParams, $options = []) {
-        $url = "https://musicbrainz.org/ws/2/{$resource}/?" . http_build_query(array_map('urlencode', $urlParams));
+    require_once("php/album_art_connection.php");
+    require_once("php/database_connection.php");
     
-        $handle = curl_init($url);
-        $default = [
-            CURLOPT_USERAGENT => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/116.0',
-            CURLOPT_RETURNTRANSFER => true,
-        ];
-    
-        foreach ($options as $key => $value) {
-            $default[$key] = $value;
-        }
-    
-        curl_setopt_array($handle, $default);
-        $result = curl_exec($handle);
-        curl_close($handle);
-        return $result ? json_decode($result,true) : false;
-    }
-    
-    function getArtist($search) {
-        return curlIt('artist', [
-            'fmt' => 'json',
-            'query' => $search,
-            'limit' => 1,
-        ]);
-    }
-    
-    function getAlbum($artistId, $album) {
-        return curlIt('release', [
-            'fmt' => 'json',
-            'query' => $album . ' AND arid:' . $artistId,
-            'limit' => 1,
-        ]);
-    }
-    
-    
-    header('Content-type: application/json');
+    // header('Content-type: application/json');
     // header('Content-type: text/plain');
-    var_dump(getAlbum(getArtist("Alan Walker")['artists'][0]['id'],"Different World"));
+    $artist = "Alan Walker";
+    $album = "Different World";
+
+    $artist_id = getArtist($artist);
+    // $artist_id = get_artist_id($artist);
+    $album_id = getAlbum($artist_id, $album);
+    // $album_id = get_album_id($album);
+    // $image = append_filename(getArt($album_id),"1200");
+
+
+    // $artist = get_artist_name_from_album($album);
+    
+    // var_dump($artist);
+    // var_dump($artist_id);
+    // var_dump($album_id);
+    // var_dump($image);
 ?> 
+
+<html>
+    <head>
+        <style>
+            body {
+                height: 100%;
+                margin: 0;
+            }
+
+            .content {
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- <div class="content" style="background-image:url(<?= $image ?>);background-size:cover;background-repeat:no-repeat;"></div> -->
+    </body>
+</html>

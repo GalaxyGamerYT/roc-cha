@@ -24,17 +24,20 @@
     }
 
     function get_all_albums(int $limit, int $offset): array {
-        $statement = get_data("SELECT * FROM albums LIMIT ? OFFSET ?", [$limit,$offset]);
+        $query =  "SELECT * FROM albums LIMIT ? OFFSET ?";
+        $statement = get_data($query, [$limit,$offset]);
         return $statement->fetchAll();
     }
 
     function get_one_album($id): object {
-        $statement = get_data("SELECT * FROM albums WHERE id = ?", [$id]);
+        $query = "SELECT albums.*,artists.name as artist FROM albums INNER JOIN artists ON albums.artist_id = artists.id WHERE albums.id = ?";
+        $statement = get_data($query, [$id]);
         return $statement->fetchObject();
     }
 
     function get_tracks($id): array {
-        $statement = get_data("SELECT * FROM tracks WHERE album_id = ?", [$id]);
+        $query = "SELECT * FROM tracks WHERE album_id = ?";
+        $statement = get_data($query, [$id]);
         return $statement->fetchAll();
     }
 
@@ -63,5 +66,29 @@
             $query = $query . "LIMIT ? OFFSET ?";
         }
         return $query;
+    }
+
+    function get_artist_id($artist) {
+        $query = "SELECT artist_id FROM artists WHERE name = ?";
+        $statement = get_data($query,[$artist]);
+        return ($statement->fetchObject())->artist_id;
+    }
+
+    function get_artist_id_from_album($album) {
+        $query = "SELECT artists.artist_id FROM albums INNER JOIN artists ON albums.artist_id = artists.id WHERE albums.name = ?";
+        $statement = get_data($query,[$album]);
+        return ($statement->fetchObject())->artist_id;
+    }
+
+    function get_album_id($album) {
+        $query = "SELECT album_id FROM albums WHERE name = ?";
+        $statement = get_data($query,[$album]);
+        return ($statement->fetchObject())->album_id;
+    }
+
+    function get_artist_name_from_album($album) {
+        $query = "SELECT artists.name FROM albums INNER JOIN artists ON albums.artist_id = artists.id WHERE albums.name = ?";
+        $statement = get_data($query,[$album]);
+        return ($statement->fetchObject())->name;
     }
 ?>

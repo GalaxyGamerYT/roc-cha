@@ -25,7 +25,8 @@
     }
 
     require_once("php/database_connection.php");
-    
+    require_once("php/album_art_connection.php");
+
     $album = get_one_album($album_id);
 
     $name = $album->name;
@@ -39,6 +40,7 @@
     $tracks = get_tracks($album_id);
 
     $count = get_count("tracks",[$album_id]);
+    $artist_image = getArt(get_album_id($name));
 
     // $artist_string = str_replace(" ","_",$artist);
     // $artist_image = "assets/artists/{$artist_string}";

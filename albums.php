@@ -78,6 +78,7 @@
                     <?php 
                         
                         foreach ($albums as $album) {
+                            $artist = get_artist_name_from_album($album['name']);
                             if ($searching) {
                                 echo "<a href='info.php?id={$album['id']}&page={$page}&search={$search}'>";
                             } else {
@@ -85,7 +86,7 @@
                             }
                             echo "<div class='album_child_container'>
                             <p class='name'>{$album['name']}</p>
-                            <p class='artist'>{$album['artist']}</p>
+                            <p class='artist'>{$artist}</p>
                             <div class='track_container'>
                             <p class='tracks'>Catalogue: {$album['id']}</p>
                             <p class='tracks'>Cost: £{$album['cost']}</p>
