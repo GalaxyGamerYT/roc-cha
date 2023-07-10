@@ -5,7 +5,6 @@
         } else {
             $url = "http://coverartarchive.org/{$resource}/{$urlParams['id']}";
         }
-        echo $url;
 
         $handle = curl_init($url);
         $default = [

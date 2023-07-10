@@ -1,11 +1,7 @@
 <?php
     declare(strict_types=1);
 
-    $db = new PDO(
-        dsn: 'sqlite:/Users/Oliwooton/Documents/Rock Chard/database/rock_chard.db',
-        username: null,
-        password: null,
-    );
+    $db = new PDO(dsn: 'sqlite:/home/oli/public_html/rock-chard/database/rock_chard.db', username: null, password: null );
 
     function get_data(string $query, array $args = []): object {
         global $db;

@@ -1,5 +1,6 @@
 <?php
     $error_page = "templates/404.php";
+    $error = false;
 
     if (empty($_GET['page'])) {
         $page = 1;
@@ -7,6 +8,7 @@
         $page = $_GET['page'];
         if (intval($page) == 0) {
             http_response_code(404);
+            $error = true;
             include($error_page);
             die();
         } else {

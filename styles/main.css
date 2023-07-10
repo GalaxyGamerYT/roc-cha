@@ -1,9 +1,16 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
 html, body {
     margin: 0;
     height: 100%;
     width: 100%;
     color: white;
     overflow: hidden;
+    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .topnav {
