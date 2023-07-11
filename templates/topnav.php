@@ -16,7 +16,7 @@
     if ($file == "rock-chard/forms/album.php") {
         $file_paths = "../../rock-chard/";
     } else {
-        $file_path = "../rock-chard/";
+        $file_paths = "../rock-chard/";
     }
 
 ?>
@@ -30,7 +30,7 @@
     <?php
         if ($file == "rock-chard/info.php") {
             if ($searched) {
-                echo "<a class='right' href='{$file_paths}/albums.php?page={$page}&search={$searched_string}'>Back</a>";
+                echo "<a class='right' href='{$file_paths}albums.php?page={$page}&search={$searched_string}'>Back</a>";
             } else {
                 echo "<a class='right' href='{$file_paths}albums.php?page={$page}'>Back</a>";
             }
